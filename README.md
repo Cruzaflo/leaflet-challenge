@@ -2,7 +2,9 @@
 This repository containes the following files:
 
 index.html 
+
 static/js/logic.js
+
 static/css/style.css
 
 The index.html file is the main webpage for the front end of this project. The logic.js file contains all the javascript used. The styl.css file contains some styles for the html. 
