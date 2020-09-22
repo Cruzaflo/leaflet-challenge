@@ -68,17 +68,17 @@ function createFeatures(dataFeatures) {
           return 1
             }
         }
-//     function pointToLayer(feature, latlng){
-//         var geojsonMarkerOptions = {
-//           radius: circleRadius(feature.properties.mag),
-//           fillColor: circleColor(feature.geometry.coordinates[2]),
-//           color: "#000",
-//           weight: 1,
-//           opacity: 1,
-//           fillOpacity: 0.5
-//           }
-//         return L.circleMarker(latlng, geojsonMarkerOptions)
-//         }
+    function pointToLayer(feature, latlng){
+        var geojsonMarkerOptions = {
+          radius: circleRadius(feature.properties.mag),
+          fillColor: circleColor(feature.geometry.coordinates[2]),
+          color: "#000",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.5
+          }
+        return L.circleMarker(latlng, geojsonMarkerOptions)
+        }
 
 //     var earthquakes = L.geoJSON(dataFeatures,{
 //         onEachFeature: onEachFeature,
