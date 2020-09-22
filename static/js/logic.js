@@ -60,14 +60,14 @@ function createFeatures(dataFeatures) {
         }
       }
     
-//     function circleRadius(magnitude){
-//         if (magnitude > 0){
-//           return magnitude * 5
-//             }
-//         else {
-//           return 1
-//             }
-//         }
+    function circleRadius(magnitude){
+        if (magnitude > 0){
+          return magnitude * 5
+            }
+        else {
+          return 1
+            }
+        }
 //     function pointToLayer(feature, latlng){
 //         var geojsonMarkerOptions = {
 //           radius: circleRadius(feature.properties.mag),
