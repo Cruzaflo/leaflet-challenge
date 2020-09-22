@@ -1,10 +1,13 @@
+//geoJSON data URL
 let queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
+//Create map
 var myMap = L.map("map", {
     center: [37.09, -95.71],
     zoom: 5
 })
 
+//add tile layer to map
 streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: "CruzafloolfazurCCruzafloolfazurCCruzafloolfazurC",
     maxZoom: 18,
@@ -12,8 +15,8 @@ streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
     accessToken: API_KEY
   }).addTo(myMap)
 
+//qury the geoJSON data URL
 d3.json(queryUrl, function(data){
-    console.log(data)
     createFeatures(data.features)
 })
 
@@ -80,10 +83,10 @@ function createFeatures(dataFeatures) {
         return L.circleMarker(latlng, geojsonMarkerOptions)
         }
 
-//     var earthquakes = L.geoJSON(dataFeatures,{
-//         onEachFeature: onEachFeature,
-//         pointToLayer: pointToLayer
-//     })
+    var earthquakes = L.geoJSON(dataFeatures,{
+        onEachFeature: onEachFeature,
+        pointToLayer: pointToLayer
+    })
     
-//     earthquakes.addTo(myMap)
-// }
+    earthquakes.addTo(myMap)
+}
