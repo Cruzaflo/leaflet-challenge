@@ -17,9 +17,11 @@ streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?ac
 
 //qury the geoJSON data URL
 d3.json(queryUrl, function(data){
+    //create features for the map based on the data features
     createFeatures(data.features)
 })
 
+//create legend
 var legend = L.control({
     position: "bottomright"
 })
@@ -38,10 +40,13 @@ legend.onAdd = function (){
 
 legend.addTo(myMap)
 
+//function to create features for the map
 function createFeatures(dataFeatures) {
+    //create popup for each point containing the location and date of the earthquake
     function onEachFeature (feature, layer) {
         layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`)
     }
+    //create a function to determine the color of each circle marker
     function circleColor(depth){
         if (depth > 90){
           return "#ea2c2c"
@@ -63,6 +68,7 @@ function createFeatures(dataFeatures) {
         }
       }
     
+    //create function to determine the circle radius of the circle marker
     function circleRadius(magnitude){
         if (magnitude > 0){
           return magnitude * 5
@@ -71,6 +77,7 @@ function createFeatures(dataFeatures) {
           return 1
             }
         }
+    //create function to set the marker optons object
     function pointToLayer(feature, latlng){
         var geojsonMarkerOptions = {
           radius: circleRadius(feature.properties.mag),
@@ -82,11 +89,11 @@ function createFeatures(dataFeatures) {
           }
         return L.circleMarker(latlng, geojsonMarkerOptions)
         }
-
+    //define the geoJSON features
     var earthquakes = L.geoJSON(dataFeatures,{
         onEachFeature: onEachFeature,
         pointToLayer: pointToLayer
     })
-    
+    //add the features to the map
     earthquakes.addTo(myMap)
 }
