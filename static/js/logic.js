@@ -8,7 +8,7 @@ var myMap = L.map("map", {
 })
 
 //add tile layer to map
-streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
     attribution: "CruzafloolfazurCCruzafloolfazurCCruzafloolfazurC",
     maxZoom: 18,
     id: "mapbox.streets",
