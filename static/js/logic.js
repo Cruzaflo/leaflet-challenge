@@ -35,30 +35,30 @@ legend.onAdd = function (){
 
 legend.addTo(myMap)
 
-// function createFeatures(dataFeatures) {
-//     function onEachFeature (feature, layer) {
-//         layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`)
-//     }
-//     function circleColor(depth){
-//         if (depth > 90){
-//           return "#ea2c2c"
-//         }
-//         else if (depth > 70){
-//           return "#ea822c"
-//         }
-//         else if (depth > 50){
-//           return "#ee9c00"
-//         }
-//         else if (depth > 30){
-//           return "#eecc00"
-//         }
-//         else if (depth > 10){
-//           return "#d4ee00"
-//         }
-//         else {
-//           return "#98ee00"
-//         }
-//       }
+function createFeatures(dataFeatures) {
+    function onEachFeature (feature, layer) {
+        layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`)
+    }
+    function circleColor(depth){
+        if (depth > 90){
+          return "#ea2c2c"
+        }
+        else if (depth > 70){
+          return "#ea822c"
+        }
+        else if (depth > 50){
+          return "#ee9c00"
+        }
+        else if (depth > 30){
+          return "#eecc00"
+        }
+        else if (depth > 10){
+          return "#d4ee00"
+        }
+        else {
+          return "#98ee00"
+        }
+      }
     
 //     function circleRadius(magnitude){
 //         if (magnitude > 0){
